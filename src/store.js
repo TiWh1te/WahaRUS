@@ -29,6 +29,7 @@ function playedPairs(t) {
   const pairs = new Set();
   for (const round of t.rounds) {
     for (const match of round.matches) {
+      if (match.bye) continue;
       const key = [match.p1.id, match.p2.id].sort().join("|");
       pairs.add(key);
     }
