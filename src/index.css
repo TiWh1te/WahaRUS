@@ -1,0 +1,523 @@
+/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ─── Variables ────────────────────────────────────────────────────────────── */
+:root {
+  --bg:       #0f1117;
+  --surface:  #1a1d27;
+  --surface2: #22263a;
+  --border:   #2e3348;
+  --border2:  #3a3f58;
+  --accent:   #f0b429;
+  --accent2:  #e05c2a;
+  --green:    #3ecf8e;
+  --red:      #f06292;
+  --muted:    #6b7280;
+  --text:     #e8eaf0;
+  --text-dim: #9ca3af;
+  --r:        12px;
+  --r-sm:     8px;
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --transition:   0.15s ease;
+}
+
+/* ─── Reset ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Layout ───────────────────────────────────────────────────────────────── */
+.container {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ─── App wordmark (Home) ──────────────────────────────────────────────────── */
+.home-header { padding: 0.75rem 0 0.25rem; }
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.25rem;
+}
+
+.wordmark-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--accent);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wordmark-icon svg {
+  width: 17px;
+  height: 17px;
+  fill: #111;
+}
+
+.wordmark-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.app-subtitle {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding-left: 44px;
+}
+
+/* ─── Cards ────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.125rem 1.375rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.875rem;
+}
+
+/* When section-title is inside card-header, it owns its own bottom margin via the header */
+.card-header .section-title { margin-bottom: 0; }
+
+.count-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.1rem 0.55rem;
+}
+
+/* ─── Input ────────────────────────────────────────────────────────────────── */
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 0.55rem 0.875rem;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.input::placeholder { color: var(--muted); }
+
+/* ─── Buttons ──────────────────────────────────────────────────────────────── */
+.button {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.55rem 1.125rem;
+  transition: background var(--transition), border-color var(--transition);
+  white-space: nowrap;
+  line-height: 1;
+}
+.button:hover { background: var(--border); }
+.button:active { transform: scale(0.98); }
+
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #111;
+  font-weight: 600;
+}
+.button.primary:hover { background: #f7c040; border-color: #f7c040; }
+
+.button.danger {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--red) 50%, var(--border));
+  color: var(--red);
+}
+.button.danger:hover {
+  background: color-mix(in srgb, var(--red) 10%, transparent);
+  border-color: var(--red);
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 4px;
+  transition: color var(--transition), background var(--transition);
+}
+.remove-btn:hover {
+  color: var(--red);
+  background: color-mix(in srgb, var(--red) 10%, transparent);
+}
+
+/* ─── Tournament list ──────────────────────────────────────────────────────── */
+.tournament-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tournament-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--surface2);
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  transition: border-color var(--transition), background var(--transition);
+}
+.tournament-item:hover {
+  border-color: var(--border2);
+  background: color-mix(in srgb, var(--surface2) 85%, #fff);
+}
+
+/* Status dot — replaces the old separate status color on the item */
+.t-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.t-dot.dot-live { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.t-dot.dot-reg  { background: #60a5fa; }
+.t-dot.dot-done { background: var(--muted); }
+
+.tournament-link {
+  text-decoration: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.t-name {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.t-meta { color: var(--text-dim); font-size: 0.78rem; }
+.t-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+
+/* ─── Status badges ────────────────────────────────────────────────────────── */
+.status-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.status-registration { background: color-mix(in srgb, #60a5fa 14%, transparent); color: #60a5fa; }
+.status-ongoing      { background: color-mix(in srgb, var(--green) 14%, transparent); color: var(--green); }
+.status-finished     { background: color-mix(in srgb, var(--muted) 20%, transparent); color: var(--text-dim); }
+
+/* ─── Player list (registration) ───────────────────────────────────────────── */
+.player-list {
+  list-style: none;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.player-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.375rem 0.625rem;
+  border-radius: 6px;
+  background: var(--surface2);
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  transition: border-color var(--transition);
+}
+.player-item:hover { border-color: var(--border); }
+
+.hint { color: var(--muted); font-size: 0.85rem; margin-top: 0.625rem; }
+
+/* ─── Empty state ──────────────────────────────────────────────────────────── */
+.empty-state {
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.875rem;
+}
+
+/* ─── Tournament page header ───────────────────────────────────────────────── */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-top: 0.5rem;
+}
+
+.back-link {
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-decoration: none;
+  width: fit-content;
+  transition: color var(--transition);
+}
+.back-link:hover { color: var(--text-dim); }
+
+.tournament-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tournament-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ─── Winner card ──────────────────────────────────────────────────────────── */
+.winner-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+}
+.trophy { font-size: 2.25rem; line-height: 1; }
+.winner-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.winner-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.winner-score { color: var(--text-dim); font-size: 0.85rem; margin-top: 2px; }
+
+/* ─── Standings ────────────────────────────────────────────────────────────── */
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  table-layout: fixed;
+}
+
+.standings-table thead th {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0 0.5rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.standings-table thead th.name-col { text-align: left; }
+
+.standings-table tbody tr { transition: background var(--transition); }
+.standings-table tbody tr:hover { background: var(--surface2); }
+.standings-table tbody tr.leader {
+  background: color-mix(in srgb, var(--green) 7%, transparent);
+}
+.standings-table tbody tr.leader:hover {
+  background: color-mix(in srgb, var(--green) 11%, transparent);
+}
+
+.standings-table td {
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
+  text-align: center;
+}
+.standings-table td.name-col { text-align: left; }
+.standings-table tbody tr:last-child td { border-bottom: none; }
+
+.standings-table .rank { color: var(--muted); font-size: 0.8rem; width: 28px; }
+.standings-table .name-col { font-weight: 500; }
+.standings-table .pts { font-weight: 700; color: var(--accent); }
+
+.standings-table tr.leader td { color: var(--green); }
+.standings-table tr.leader .pts { color: var(--accent); }
+.standings-table tr.leader .rank { color: var(--green); }
+
+/* ─── Action row ───────────────────────────────────────────────────────────── */
+.action-row {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.error-msg {
+  color: var(--red);
+  font-size: 0.85rem;
+  flex: 1 1 100%;
+  padding: 0.5rem 0.75rem;
+  background: color-mix(in srgb, var(--red) 8%, transparent);
+  border-radius: var(--r-sm);
+  border: 1px solid color-mix(in srgb, var(--red) 25%, transparent);
+}
+
+/* ─── Rounds ───────────────────────────────────────────────────────────────── */
+.rounds-list { display: flex; flex-direction: column; gap: 0.875rem; }
+
+.round-card { transition: border-color 0.25s ease; }
+.round-card.round-complete {
+  border-color: color-mix(in srgb, var(--green) 35%, var(--border));
+}
+
+.round-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+}
+
+.complete-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--green);
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Match rows ───────────────────────────────────────────────────────────── */
+.match-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+}
+.match-row:last-child { border-bottom: none; }
+
+.player-name {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+.player-name.right { text-align: right; }
+.player-name.winner { color: var(--green); font-weight: 600; }
+.player-name.loser  { color: var(--muted); }
+
+/* ─── Result controls ──────────────────────────────────────────────────────── */
+.result-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.result-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: 4px;
+  padding: 0.1rem 0.55rem;
+  min-width: 44px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.res-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 6px;
+  transition: all 0.12s;
+  line-height: 1;
+}
+.res-btn:hover { background: var(--border2); color: var(--text); border-color: var(--border2); }
+.res-btn.active { background: var(--green); border-color: var(--green); color: #0f1117; }
+.res-btn.draw.active { background: var(--accent); border-color: var(--accent); color: #0f1117; }
+
+/* ─── Bye row ──────────────────────────────────────────────────────────────── */
+.bye-row { grid-template-columns: 1fr auto; }
+.bye-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent2);
+  background: color-mix(in srgb, var(--accent2) 14%, transparent);
+  border-radius: 4px;
+  padding: 0.15rem 0.55rem;
+  letter-spacing: 0.04em;
+}
